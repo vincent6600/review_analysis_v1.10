@@ -1,0 +1,15 @@
+[Unit]
+Description=Shopee Review Analysis System v1.10
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/review_analysis_v1.10
+Environment="PATH=/opt/review_analysis_v1.10/venv/bin"
+ExecStart=/opt/review_analysis_v1.10/venv/bin/gunicorn -w 2 -b 127.0.0.1:5000 --timeout 120 app:app
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
