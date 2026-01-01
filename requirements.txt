@@ -1,0 +1,31 @@
+# Shopee竞品评价分析系统 - Python依赖包
+# 注意：已更新版本以支持 Python 3.13
+
+# Web框架
+Flask>=3.0.0
+Werkzeug>=3.0.1
+
+# 数据处理（使用更新版本以支持 Python 3.13）
+pandas>=2.2.0
+openpyxl>=3.1.2
+
+# 图表生成
+matplotlib>=3.8.2
+seaborn>=0.13.0
+plotly>=5.18.0
+pyecharts>=2.0.0
+
+# PDF生成
+weasyprint>=60.1
+reportlab>=4.0.7
+
+# 测试框架
+pytest>=7.4.3
+pytest-cov>=4.1.0
+
+# 工具库
+python-dateutil>=2.8.2
+Pillow>=10.1.0
+scipy>=1.11.0
+
+gunicorn>=21.2.0
