@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee竞品评价分析系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ECharts.js CDN - v1.10切换到ECharts方案（简约商务风格） -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>文件上传</h2>
+            </div>
+            
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept=".xlsx" style="display: none;">
+                    <div class="upload-icon" id="uploadIcon">📁</div>
+                    <div class="upload-text" id="uploadText">点击或拖拽文件到此处上传</div>
+                    <div class="upload-hint" id="uploadHint">支持 .xlsx 格式，最大 100MB</div>
+                </div>
+                
+                <!-- 文件信息显示区域 -->
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-info-header">
+                        <span class="file-info-icon">✅</span>
+                        <span class="file-info-title">已选择文件</span>
+                    </div>
+                    <div class="file-info-content">
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary" id="analyzeBtn" disabled>执行分析</button>
+            </div>
+            
+            <div class="log-section">
+                <div class="log-header">
+                    <h3>日志</h3>
+                    <button class="btn-clear" id="clearLogBtn">清空</button>
+                </div>
+                <div class="log-content" id="logContent">
+                    <div class="log-item info">等待上传文件...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- 右侧主区域 -->
+        <div class="main-content">
+            <div class="header-bar">
+                <h1>分析报告</h1>
+                <button class="btn-export" id="exportBtn" disabled>导出报告</button>
+            </div>
+            
+            <div class="report-container" id="reportContainer">
+                <div class="empty-state">
+                    <div class="empty-icon">📊</div>
+                    <div class="empty-text">请上传Excel文件开始分析</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
