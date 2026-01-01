@@ -1,0 +1,516 @@
+/* Shopee竞品评价分析系统 - 样式表 v1.10 */
+/* v1.10更新：现代化UI设计、动画效果、卡片式布局 */
+
+/* CSS变量定义 - 现代化配色方案 */
+:root {
+    --primary-color: #1890ff;
+    --primary-hover: #40a9ff;
+    --success-color: #52c41a;
+    --warning-color: #faad14;
+    --error-color: #f5222d;
+    --text-primary: #262626;
+    --text-secondary: #8c8c8c;
+    --border-color: #f0f0f0;
+    --bg-color: #fafafa;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: var(--transition-base);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 左侧栏样式 */
+.sidebar {
+    width: 350px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.upload-section {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px 15px;  /* 缩小高度：从40px改为20px */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #fafafa;
+    min-height: 100px;  /* 设置最小高度，确保有足够空间 */
+}
+
+.upload-area:hover {
+    border-color: #1890ff;  /* 简约商务蓝色 */
+    background-color: #f0f7ff;  /* 浅蓝色背景 */
+}
+
+.upload-area.dragover {
+    border-color: #1890ff;  /* 简约商务蓝色 */
+    background-color: #e6f7ff;  /* 更浅的蓝色背景 */
+}
+
+.upload-area.file-selected {
+    border-color: #52c41a;
+    background-color: #f6ffed;
+    border-style: solid;
+}
+
+.upload-icon {
+    font-size: 36px;  /* 缩小图标：从48px改为36px */
+    margin-bottom: 8px;  /* 缩小间距 */
+}
+
+.upload-text {
+    font-size: 14px;  /* 缩小文字：从16px改为14px */
+    color: #666;
+    margin-bottom: 4px;  /* 缩小间距 */
+}
+
+.upload-hint {
+    font-size: 11px;  /* 缩小提示文字：从12px改为11px */
+    color: #999;
+}
+
+/* 文件信息显示区域（简约提示样式） */
+.file-info {
+    margin-top: 10px;
+    padding: 8px 12px;  /* 缩小内边距，高度减半 */
+    background-color: #f5f5f5;  /* 简约灰色背景 */
+    border: 1px solid #e0e0e0;  /* 简约边框 */
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease-out;
+    min-height: 30px;  /* 高度减半 */
+}
+
+.file-info-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;  /* 缩小间距 */
+}
+
+.file-info-icon {
+    font-size: 14px;  /* 缩小图标 */
+    margin-right: 6px;
+}
+
+.file-info-title {
+    font-size: 12px;  /* 缩小文字 */
+    font-weight: normal;  /* 普通字重 */
+    color: #666;  /* 简约灰色 */
+}
+
+.file-info-content {
+    padding-left: 20px;  /* 缩小左边距 */
+}
+
+.file-name {
+    font-size: 12px;  /* 缩小文字 */
+    color: #666;  /* 简约灰色 */
+    font-weight: normal;  /* 普通字重 */
+    margin-bottom: 2px;  /* 缩小间距 */
+    word-break: break-all;
+}
+
+.file-size {
+    font-size: 11px;  /* 缩小文字 */
+    color: #999;  /* 更浅的灰色 */
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px 24px;
+    margin-top: 15px;
+    background: #1890ff;  /* 简约商务蓝色，无渐变 */
+    color: white;
+    border: none;
+    border-radius: 4px;  /* 简约圆角 */
+    font-size: 16px;
+    font-weight: 500;  /* 普通字重 */
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(24, 144, 255, 0.2);  /* 简约阴影 */
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #40a9ff;  /* 悬停时稍浅的蓝色 */
+    box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+    background: #096dd9;  /* 点击时更深的蓝色 */
+}
+
+.btn-primary:disabled {
+    background: #d9d9d9;  /* 简约灰色 */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.log-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.log-header h3 {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.btn-clear {
+    padding: 4px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-clear:hover {
+    background-color: #e0e0e0;
+}
+
+.log-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+}
+
+.log-item {
+    margin-bottom: 8px;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.log-item.info {
+    color: #666;
+}
+
+.log-item.success {
+    color: #28a745;
+    background-color: #d4edda;
+}
+
+.log-item.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.log-item.warning {
+    color: #856404;
+    background-color: #fff3cd;
+}
+
+.warning-box {
+    padding: 15px;
+    margin: 20px;
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #856404;
+}
+
+/* 右侧主区域样式 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.header-bar h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.btn-export {
+    padding: 10px 24px;
+    background: #52c41a;  /* 简约商务绿色，无渐变 */
+    color: white;
+    border: none;
+    border-radius: 4px;  /* 简约圆角 */
+    font-size: 14px;
+    font-weight: 500;  /* 普通字重 */
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(82, 196, 26, 0.2);  /* 简约阴影 */
+}
+
+.btn-export:hover:not(:disabled) {
+    background: #73d13d;  /* 悬停时稍浅的绿色 */
+    box-shadow: 0 2px 6px rgba(82, 196, 26, 0.3);
+}
+
+.btn-export:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-export:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.report-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.empty-text {
+    font-size: 18px;
+}
+
+/* 报告内容样式 - 全屏布局 */
+.report-content {
+    width: 100%;
+    min-height: 100%;
+    background-color: #f5f5f5;
+}
+
+/* 报告内容样式覆盖 - 全屏布局 */
+.report-content .report-wrapper {
+    width: 100% !important;
+    min-height: 100% !important;
+}
+
+.report-content .report-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 40px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 确保图表和内容占据全宽 */
+.report-content .chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.report-content .stats-grid {
+    width: 100% !important;
+}
+
+.report-content .data-table {
+    width: 100% !important;
+}
+
+/* v1.10新增：现代化卡片样式 */
+.stat-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-base);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.stat-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.stat-card .stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.stat-card .stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* v1.10新增：图表容器现代化样式 */
+.chart-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--card-shadow);
+    animation: fadeIn 0.5s ease-out;
+    border: 1px solid var(--border-color);
+}
+
+.chart-container:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* v1.10新增：淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* v1.10新增：上传区域现代化 */
+.upload-area {
+    border-radius: 12px;
+    transition: var(--transition-base);
+}
+
+.upload-area:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+/* v1.10新增：侧边栏现代化 */
+.sidebar {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* v1.10新增：头部栏现代化 */
+.header-bar {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);  /* 简约阴影 */
+    background: #ffffff;  /* 简约白色背景，无渐变 */
+}
+
+/* v1.10新增：日志区域现代化 */
+.log-content {
+    border-radius: 8px;
+    transition: var(--transition-base);
+}
+
+.log-content:hover {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* v1.10新增：警告框现代化 */
+.warning-box {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.15);
+    transition: var(--transition-base);
+}
+
+.warning-box:hover {
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+/* v1.10新增：ECharts图表容器样式（简约商务风格） */
+.echarts-chart-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-base);
+}
+
+.echarts-chart-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 滚动条样式 - v1.10优化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
